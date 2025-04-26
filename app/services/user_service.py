@@ -12,7 +12,7 @@ class UserService(Service):
         return self.response(
             code=200,
             message="Success retrieving users",
-            data=[{"id": u.id, "name": u.name, "email": u.email} for u in users]
+            data=[{"id": u.id, "name": u.name, "email": u.email, "created_at": u.created_at} for u in users]
         )
 
     def get_user_by_id(self, db: Session, user_id: int):
@@ -29,7 +29,7 @@ class UserService(Service):
             data={
                 "id": user.id,
                 "name": user.name,
-                "email": user.email
+                "email": user.email,
             }
         )
 
@@ -56,7 +56,7 @@ class UserService(Service):
             data={
                 "id": user.id,
                 "name": user.name,
-                "email": user.email
+                "created_at": user.created_at
             }
         )
 
